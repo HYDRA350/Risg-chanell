@@ -1,0 +1,392 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RISG GAMING - Push Rank Together | Mobile Legends Streamer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Compass Overlay -->
+    <div class="compass-overlay">
+        <div class="compass-lines"></div>
+    </div>
+
+    <!-- Navbar Glass -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-text">RISG</span>
+                <span class="logo-sub">GAMING</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#live">Live</a></li>
+    <li><a href="#video">Videos</a></li>
+    <li><a href="#stats">ML Stats</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#support">Support</a></li>
+</ul>
+            <div class="nav-actions">
+                <a href="https://discord.com/invite/wW3efvNYwX" target="_blank" class="btn-discord">
+                    <span class="discord-icon">💬</span>
+                    Discord
+                </a>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="live-dot"></span>
+                    Mobile Legends Creator
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Push Rank</span>
+                    <span class="title-highlight">Together.</span>
+                </h1>
+                <p class="hero-description">
+                    Mabar Gratis. No Toxic.<br>
+                    Just Enjoy The Game. <br>
+                    Semua rank bisa JOIN!!
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://www.youtube.com/@RISG./streams " target="_blank" class="btn-primary">
+                        <span class="btn-icon">▶</span>
+                        Watch Live
+                    </a>
+                    <a href="https://chat.whatsapp.com/B9JxBPmPckALRQZAVs2x9n" target="_blank" class="btn-secondary">
+                        <span class="btn-icon">⚓</span>
+                        Join Community
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-value">Mythic immortal 103</span>
+                        <span class="stat-label">Highest Rank</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value">8.04K</span>
+                        <span class="stat-label">Subscribers</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value">700+</span>
+                        <span class="stat-label">Videos</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="character-container">
+                    <div class="character-glow"></div>
+                    <div class="character-wrapper">
+                        <div class="pngtuber">
+    <img src="asset/img/Risg_png.png" alt="RISG GAMING" class="character-image">
+</div>
+                    </div>
+                    <div class="floating-elements">
+                        <span class="float-item compass">🧭</span>
+                        <span class="float-item wave">🌊</span>
+                        <span class="float-item gold">✨</span>
+                        <span class="float-item star">⭐</span>
+                        <span class="float-item map">🗺️</span>
+                        <span class="float-item map">💀 </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section - Adventure Logbook Style -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2 class="section-title">RISG' <span>Log</span></h2>
+            <p class="section-subtitle">The story behind the crew</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card glass-card">
+                <div class="card-icon">🏴‍☠️</div>
+                <h3>Who is RISG?</h3>
+                <p>Just a casual Mobile Legends player who loves to push rank with friends. No drama, no toxicity — just pure gaming adventure. One Piece fans who believes in friendship and teamwork.</p>
+            </div>
+            <div class="about-card glass-card">
+                <div class="card-icon">🎯</div>
+                <h3>Mission</h3>
+                <p>Creating a positive gaming community where everyone can enjoy Mobile Legends without pressure. Push rank together, share strategies, and have fun like a real crew!</p>
+            </div>
+            <div class="about-card glass-card">
+                <div class="card-icon">⚔️</div>
+                <h3>Playstyle</h3>
+                <p>Aggressive but calculated. Flexible roles. Can play any hero needed for the team. Specialized in Jungler and Gold Lane. Always ready to backup teammates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Status -->
+    <section class="live-status" id="live">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Live <span>Status</span></h2>
+        </div>
+        <div class="live-card glass-card">
+            <div class="live-indicator offline">
+                <span class="status-dot"></span>
+                <span class="status-text">Currently Offline</span>
+            </div>
+            <p class="live-message">Next stream in <strong>2 hours 30 minutes</strong></p>
+            <a href="#" class="btn-notify" id="video">
+                <span>🔔</span> Notify Me When Live
+            </a>
+        </div>
+    </section>
+
+    <!-- Latest Videos - Bento Grid -->
+    <div class="bento-grid">
+    <!-- Video Utama (Large) -->
+    <div class="bento-card large glass-card">
+        <div class="video-thumbnail">
+            <iframe 
+                src="https://www.youtube.com/embed/fTxoAucbDsg" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-info">
+            <h4>Mabar Gratis / VIP Push Sampai Immortal MOBILE LEGENDS</h4>
+            <span class="video-views">1.5K views • 2 month ago</span>
+        </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="bento-card glass-card">
+        <div class="video-thumbnail">
+            <iframe 
+                src="https://www.youtube.com/embed/0eHGiWv0QYc" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-info">
+            <h4>Mabar Gratis / Scrim MOBILE LEGENDS
+</h4>
+            <span class="video-views">1.2K views • 2 month ago</span>
+        </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="bento-card glass-card">
+        <div class="video-thumbnail">
+            <iframe 
+                src="https://www.youtube.com/embed/GelZgeF-z6I" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-info">
+            <h4>【MOBILE LEGENDS】Mabar Gratis /Scrim /VIP</h4>
+            <span class="video-views">1.1K views • 2 month ago</span>
+        </div>
+    </div>
+
+    <!-- Video 4 (Tall) -->
+    <div class="bento-card tall glass-card">
+        <div class="video-thumbnail">
+            <iframe 
+                src="https://www.youtube.com/embed/HUOUftZIynU" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-info">
+            <h4>Moment Nabrak Streamer Besar @FOXPAN</h4>
+            <span class="video-views">3.1k views • 4 month ago</span>
+        </div>
+    </div>
+</div>
+
+    <!-- ML Stats - Gaming Dashboard Style -->
+    <section class="ml-stats" id="stats">
+        <div class="section-header">
+            <span class="section-number">04</span>
+            <h2 class="section-title">Mobile Legends <span>Profile</span></h2>
+            <p class="section-subtitle">Battlefield credentials</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card glass-card">
+                <div class="stat-icon">👑</div>
+                <div class="stat-info">
+                    <span class="stat-value-large">Mythical Immortal</span>
+                    <span class="stat-label">Highest Rank</span>
+                </div>
+            </div>
+            <div class="stat-card glass-card">
+                <div class="stat-icon">🗡️</div>
+                <div class="stat-info">
+                    <span class="stat-value-large">Jungler</span>
+                    <span class="stat-label">Main Role</span>
+                </div>
+            </div>
+            <div class="stat-card glass-card">
+                <div class="stat-icon">🪭</div>
+                <div class="stat-info">
+                    <span class="stat-value-large">Hirara</span>
+                    <span class="stat-label">Signature Hero</span>
+                </div>
+            </div>
+            <div class="stat-card glass-card">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-info">
+                    <span class="stat-value-large">53.09%</span>
+                    <span class="stat-label">Win Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule - Treasure Map Style -->
+    <section class="schedule" id="schedule">
+    <div class="section-header">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Stream <span>Schedule</span></h2>
+        <p class="section-subtitle">Catch me live every day!</p>
+    </div>
+    <div class="schedule-daily">
+        <div class="daily-card glass-card">
+            <div class="daily-icon">📡</div>
+            <div class="daily-info">
+                <h3>Live Every Day</h3>
+                <div class="daily-time">
+                    <span class="time-highlight">18:00 WIB</span>
+                    <span class="time-until">until the timer runs out</span>
+                </div>
+                <p class="daily-desc">Daily Mobile Legends grind! Push rank, mabar bareng, tutorial hero, dan ngobrol santai. Join the crew! ⚓</p>
+            </div>
+            <div class="daily-days">
+                <span class="day-badge">Mon</span>
+                <span class="day-badge">Tue</span>
+                <span class="day-badge">Wed</span>
+                <span class="day-badge">Thu</span>
+                <span class="day-badge">Fri</span>
+                <span class="day-badge">Sat</span>
+                <span class="day-badge">Sun</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Gallery - Treasure Chest -->
+    <!-- Support / Sawer -->
+<section class="support" id="support">
+    <div class="section-header">
+        <span class="section-number">06</span>
+        <h2 class="section-title">Support <span>The Crew</span></h2>
+        <p class="section-subtitle">Your support keeps the adventure going! ⚓</p>
+    </div>
+    <div class="support-grid">
+        <!-- Saweria -->
+        <a href="https://saweria.co/RISG" target="_blank" class="support-card glass-card">
+            <div class="support-icon">
+                <span class="icon-circle">💰</span>
+            </div>
+            <h3>Saweria</h3>
+            <p>Support langsung via Saweria. Cepat, mudah, dan bisa pakai berbagai metode pembayaran.</p>
+            <div class="support-cta">
+                <span>Sawer Sekarang</span>
+                <span class="arrow">→</span>
+            </div>
+            <div class="support-glow"></div>
+        </a>
+
+        <!-- Sociabuzz -->
+        <a href="https://sociabuzz.com/risggaming/tribe" target="_blank" class="support-card glass-card">
+            <div class="support-icon">
+                <span class="icon-circle">🎁</span>
+            </div>
+            <h3>Sociabuzz</h3>
+            <p>Support dengan berbagai pilihan paket dan dapatkan reward eksklusif dari RISG GAMING.</p>
+            <div class="support-cta">
+                <span>Lihat Paket</span>
+                <span class="arrow">→</span>
+            </div>
+            <div class="support-glow"></div>
+        </a>
+    </div>
+</section>
+
+    <!-- Social Links -->
+    <section class="social" id="social">
+        <div class="section-header">
+            <span class="section-number">07</span>
+            <h2 class="section-title">Join The <span>Crew</span></h2>
+        </div>
+        <div class="social-grid">
+            <a href="https://www.youtube.com/@RISG./featured" target="_blank" class="social-card glass-card">
+                <span class="social-icon">▶</span>
+                <span class="social-name">YouTube</span>
+                <span class="social-handle">@RISGGAMING</span>
+            </a>
+            <a href="https://www.instagram.com/risg.05?igsh=OHR6cHB3aGx0ZXp2" target="_blank" class="social-card glass-card">
+                <span class="social-icon">📸</span>
+                <span class="social-name">Instagram</span>
+                <span class="social-handle">@risg.gaming</span>
+            </a>
+            <a href="https://www.tiktok.com/@risggaming?_t=ZS-8y4QZjErt7i&_r=1" target="_blank" class="social-card glass-card">
+                <span class="social-icon">🎵</span>
+                <span class="social-name">TikTok</span>
+                <span class="social-handle">@risggaming</span>
+            </a>
+            <a href="https://discord.com/invite/wW3efvNYwX" target="_blank" class="social-card glass-card">
+                <span class="social-icon">💬</span>
+                <span class="social-name">Discord</span>
+                <span class="social-handle">Join Server</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-quote">
+                <p>"Adventure Never Ends."</p>
+                <span>— One Piece</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2019 RISG GAMING. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
