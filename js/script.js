@@ -121,3 +121,81 @@ document.querySelectorAll('.btn-primary, .btn-secondary, .btn-notify, .btn-disco
         setTimeout(() => ripple.remove(), 600);
     });
 });
+
+// Set Reminder - Download ICS Calendar File
+document.getElementById('setReminder').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Format tanggal untuk ICS
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 0, 0);
+    
+    // Kalau udah lewat jam 6 sore, set buat besok
+    if (now > today) {
+        today.setDate(today.getDate() + 1);
+    }
+    
+    // Format ICS date: YYYYMMDDTHHMMSS
+    const formatDate = (date) => {
+        return date.getFullYear() + 
+               String(date.getMonth() + 1).padStart(2, '0') + 
+               String(date.getDate()).padStart(2, '0') + 'T' +
+               String(date.getHours()).padStart(2, '0') + 
+               String(date.getMinutes()).padStart(2, '0') + 
+               '00';
+    };
+    
+    const startDate = formatDate(today);
+    const endDate = new Date(today.getTime() + 4 * 60 * 60 * 1000); // 4 jam stream
+    const endDateFormat = formatDate(endDate);
+    
+    // Buat ICS content
+    const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//RISG GAMING//Live Stream Reminder//EN',
+        'BEGIN:VEVENT',
+        'DTSTART:' + startDate,
+        'DTEND:' + endDateFormat,
+        'SUMMARY:RISG GAMING Live Stream 🎮',
+        'DESCRIPTION:RISG GAMING is live streaming Mobile Legends!\\n\\nJoin the stream: https://youtube.com/@RISGGAMING\\n\\nDaily grind, push rank, mabar bareng! ⚓',
+        'LOCATION:YouTube @RISGGAMING',
+        'RRULE:FREQ=DAILY',
+        'BEGIN:VALARM',
+        'TRIGGER:-PT15M',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:RISG GAMING live in 15 minutes! 🚀',
+        'END:VALARM',
+        'BEGIN:VALARM',
+        'TRIGGER:-PT5M',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:5 menit lagi! Siapin popcorn! 🍿',
+        'END:VALARM',
+        'END:VEVENT',
+        'END:VCALENDAR'
+    ].join('\r\n');
+    
+    // Download ICS file
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'RISG_GAMING_Reminder.ics';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Animasi sukses
+    const btn = document.getElementById('setReminder');
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<span>✅</span> Reminder Downloaded!';
+    btn.style.background = 'rgba(34, 197, 94, 0.2)';
+    btn.style.borderColor = 'rgba(34, 197, 94, 0.5)';
+    btn.style.color = '#4ade80';
+    
+    setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.background = 'rgba(216, 155, 43, 0.2)';
+        btn.style.borderColor = 'rgba(216, 155, 43, 0.3)';
+        btn.style.color = '#D89B2B';
+    }, 3000);
+});

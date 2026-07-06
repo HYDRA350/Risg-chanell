@@ -1,25 +1,65 @@
 /* css/style.css */
+/* ============================================
+   RISG GAMING - Landing Page Stylesheet
+   ============================================ */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
 :root {
+    /* Background */
     --bg-dark: #111827;
     --surface: #1C2431;
+    
+    /* Primary - Gold */
     --gold: #D89B2B;
     --gold-light: #F4D35E;
+    
+    /* Secondary - Orange Sunset */
     --orange: #F28C28;
     --orange-dark: #E0751A;
+    
+    /* Accent - Scarlet Red */
     --red: #C53030;
     --red-light: #E53E3E;
+    
+    /* Text */
     --text-primary: #F8FAFC;
     --text-secondary: #94A3B8;
+    
+    /* Glass Effect */
     --glass-bg: rgba(28, 36, 49, 0.7);
     --glass-border: rgba(216, 155, 43, 0.2);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    --bento-radius: 24px;
+    
+    /* Border Radius */
+    --radius-sm: 16px;
+    --radius-md: 20px;
+    --radius-lg: 24px;
+    --radius-full: 50px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-* {
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -27,10 +67,38 @@ body {
     background: var(--bg-dark);
     color: var(--text-primary);
     overflow-x: hidden;
-    cursor: default;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Particles */
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-title span {
+    background: linear-gradient(135deg, var(--gold), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   PARTICLES BACKGROUND
+   ============================================ */
 .particles {
     position: fixed;
     top: 0;
@@ -45,7 +113,7 @@ body {
     position: absolute;
     background: var(--gold);
     border-radius: 50%;
-    opacity: 0.3;
+    opacity: 0;
     animation: floatUp linear infinite;
 }
 
@@ -66,7 +134,9 @@ body {
     }
 }
 
-/* Compass Overlay */
+/* ============================================
+   COMPASS OVERLAY
+   ============================================ */
 .compass-overlay {
     position: fixed;
     top: 0;
@@ -89,35 +159,40 @@ body {
     border-radius: 50%;
 }
 
-.compass-lines::before {
+.compass-lines::before,
+.compass-lines::after {
     content: '';
     position: absolute;
+    background: var(--gold);
+}
+
+.compass-lines::before {
     top: 50%;
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--gold);
+    transform: translateY(-50%);
 }
 
 .compass-lines::after {
-    content: '';
-    position: absolute;
     top: 0;
     left: 50%;
     width: 2px;
     height: 100%;
-    background: var(--gold);
+    transform: translateX(-50%);
 }
 
-/* Navbar */
+/* ============================================
+   NAVBAR
+   ============================================ */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: all 0.3s;
     padding: 1rem 0;
+    transition: all var(--transition-normal);
 }
 
 .navbar.scrolled {
@@ -135,6 +210,7 @@ body {
     align-items: center;
 }
 
+/* Logo */
 .logo {
     text-decoration: none;
     display: flex;
@@ -156,6 +232,7 @@ body {
     letter-spacing: 4px;
 }
 
+/* Nav Links */
 .nav-links {
     display: flex;
     list-style: none;
@@ -167,8 +244,8 @@ body {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: color 0.3s;
     position: relative;
+    transition: color var(--transition-normal);
 }
 
 .nav-links a::after {
@@ -179,7 +256,7 @@ body {
     width: 0;
     height: 2px;
     background: var(--gold);
-    transition: width 0.3s;
+    transition: width var(--transition-normal);
 }
 
 .nav-links a:hover {
@@ -190,11 +267,12 @@ body {
     width: 100%;
 }
 
+/* Discord Button */
 .btn-discord {
     background: rgba(216, 155, 43, 0.2);
     color: var(--gold);
     padding: 0.6rem 1.5rem;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -202,7 +280,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     border: 1px solid rgba(216, 155, 43, 0.3);
-    transition: all 0.3s;
+    transition: all var(--transition-normal);
 }
 
 .btn-discord:hover {
@@ -211,6 +289,7 @@ body {
     box-shadow: 0 0 20px rgba(216, 155, 43, 0.2);
 }
 
+/* Mobile Menu Button */
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -224,10 +303,12 @@ body {
     width: 25px;
     height: 2px;
     background: var(--text-primary);
-    transition: all 0.3s;
+    transition: all var(--transition-normal);
 }
 
-/* Hero Section */
+/* ============================================
+   HERO SECTION
+   ============================================ */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -259,6 +340,7 @@ body {
     z-index: 1;
 }
 
+/* Hero Badge */
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -266,7 +348,7 @@ body {
     background: rgba(216, 155, 43, 0.1);
     border: 1px solid rgba(216, 155, 43, 0.2);
     padding: 0.5rem 1.5rem;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     font-size: 0.9rem;
     color: var(--gold);
     margin-bottom: 2rem;
@@ -285,6 +367,7 @@ body {
     50% { opacity: 0.5; }
 }
 
+/* Hero Title */
 .hero-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 5rem;
@@ -312,22 +395,24 @@ body {
     line-height: 1.8;
 }
 
+/* Hero Buttons */
 .hero-buttons {
     display: flex;
     gap: 1rem;
     margin-bottom: 3rem;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
     padding: 0.9rem 2rem;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: all 0.3s;
+    transition: all var(--transition-normal);
 }
 
 .btn-primary {
@@ -355,6 +440,7 @@ body {
     box-shadow: 0 10px 30px rgba(216, 155, 43, 0.2);
 }
 
+/* Hero Stats */
 .hero-stats {
     display: flex;
     gap: 2.5rem;
@@ -376,7 +462,9 @@ body {
     color: var(--text-secondary);
 }
 
-/* Character */
+/* ============================================
+   CHARACTER / PNGTUBER
+   ============================================ */
 .hero-visual {
     display: flex;
     justify-content: center;
@@ -428,9 +516,8 @@ body {
     max-width: 100%;
     max-height: 450px;
     height: auto;
-    animation: float 4s ease-in-out infinite;
     filter: drop-shadow(0 0 40px rgba(216, 155, 43, 0.3));
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
 }
 
 .character-image:hover {
@@ -438,27 +525,7 @@ body {
     transform: scale(1.05);
 }
 
-.straw-hat {
-    font-size: 5rem;
-    transform: rotate(-15deg);
-    margin-bottom: -2rem;
-}
-
-.character-face {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 4rem;
-}
-
-.hoodie {
-    font-size: 6rem;
-}
-
-.phone {
-    font-size: 3rem;
-}
-
+/* Floating Elements */
 .floating-elements {
     position: absolute;
     width: 100%;
@@ -517,7 +584,9 @@ body {
     50% { transform: scaleY(0.5); }
 }
 
-/* Sections General */
+/* ============================================
+   SECTIONS - GENERAL
+   ============================================ */
 section {
     padding: 6rem 5%;
     position: relative;
@@ -538,34 +607,62 @@ section {
     margin-bottom: 0.5rem;
 }
 
-.section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 2px;
+/* Section Spacing */
+#live {
+    padding-bottom: 3rem;
 }
 
-.section-title span {
-    background: linear-gradient(135deg, var(--gold), var(--orange));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+#videos {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
 }
 
-.section-subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+.section-divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 5%;
+    position: relative;
+    z-index: 1;
 }
 
-/* Glass Card */
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(216, 155, 43, 0.15),
+        rgba(216, 155, 43, 0.3),
+        rgba(216, 155, 43, 0.15),
+        transparent
+    );
+}
+
+.divider-icon {
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.4;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ============================================
+   GLASS CARD (Shared Component)
+   ============================================ */
 .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    border-radius: var(--bento-radius);
+    border-radius: var(--radius-lg);
     padding: 2rem;
     box-shadow: var(--glass-shadow);
-    transition: all 0.3s;
+    transition: all var(--transition-normal);
 }
 
 .glass-card:hover {
@@ -574,7 +671,9 @@ section {
     transform: translateY(-5px);
 }
 
-/* About Grid */
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
 .about-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -593,11 +692,9 @@ section {
 }
 
 .about-card h3 {
-    font-family: 'Bebas Neue', sans-serif;
     font-size: 1.5rem;
     color: var(--gold);
     margin-bottom: 1rem;
-    letter-spacing: 1px;
 }
 
 .about-card p {
@@ -606,10 +703,12 @@ section {
     font-size: 0.95rem;
 }
 
-/* Live Status */
+/* ============================================
+   LIVE STATUS SECTION
+   ============================================ */
 .live-card {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 2rem auto 0;
     text-align: center;
     padding: 3rem;
 }
@@ -632,6 +731,7 @@ section {
 
 .live-indicator.offline .status-dot {
     background: var(--text-secondary);
+    animation: none;
 }
 
 .status-text {
@@ -649,6 +749,14 @@ section {
     color: var(--gold);
 }
 
+/* Live Buttons */
+.live-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
 .btn-notify {
     display: inline-flex;
     align-items: center;
@@ -656,11 +764,12 @@ section {
     background: rgba(216, 155, 43, 0.2);
     color: var(--gold);
     padding: 0.8rem 2rem;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     text-decoration: none;
     font-weight: 600;
     border: 1px solid rgba(216, 155, 43, 0.3);
-    transition: all 0.3s;
+    transition: all var(--transition-normal);
+    cursor: pointer;
 }
 
 .btn-notify:hover {
@@ -668,14 +777,22 @@ section {
     box-shadow: 0 0 20px rgba(216, 155, 43, 0.2);
 }
 
-/* Bento Grid */
+.reminder-hint {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+/* ============================================
+   VIDEOS SECTION - BENTO GRID
+   ============================================ */
 .bento-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 1.5rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 3rem auto 0;
 }
 
 .bento-card.large {
@@ -686,9 +803,10 @@ section {
     grid-row: span 2;
 }
 
+/* Video Thumbnail */
 .video-thumbnail {
     background: var(--bg-dark);
-    border-radius: 16px;
+    border-radius: var(--radius-sm);
     aspect-ratio: 16/9;
     display: flex;
     align-items: center;
@@ -712,7 +830,7 @@ section {
     justify-content: center;
     font-size: 1.2rem;
     color: white;
-    transition: transform 0.3s;
+    transition: transform var(--transition-normal);
 }
 
 .video-thumbnail:hover .play-button {
@@ -729,10 +847,14 @@ section {
     font-size: 0.8rem;
 }
 
+/* Video Info */
 .video-info h4 {
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
+    letter-spacing: 0;
 }
 
 .video-views {
@@ -740,7 +862,9 @@ section {
     color: var(--text-secondary);
 }
 
-/* ML Stats */
+/* ============================================
+   ML STATS SECTION
+   ============================================ */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -770,7 +894,9 @@ section {
     color: var(--gold);
 }
 
-/* Schedule */
+/* ============================================
+   SCHEDULE SECTION
+   ============================================ */
 .schedule-daily {
     max-width: 700px;
     margin: 0 auto;
@@ -812,11 +938,9 @@ section {
 }
 
 .daily-info h3 {
-    font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     color: var(--text-primary);
     margin-bottom: 1rem;
-    letter-spacing: 2px;
 }
 
 .daily-time {
@@ -835,7 +959,6 @@ section {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: 2px;
 }
 
 .time-until {
@@ -843,7 +966,7 @@ section {
     font-size: 1rem;
     background: rgba(216, 155, 43, 0.1);
     padding: 0.3rem 1rem;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     border: 1px solid rgba(216, 155, 43, 0.2);
 }
 
@@ -866,11 +989,11 @@ section {
     background: rgba(216, 155, 43, 0.1);
     color: var(--gold);
     padding: 0.5rem 1rem;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     font-size: 0.85rem;
     font-weight: 600;
     border: 1px solid rgba(216, 155, 43, 0.2);
-    transition: all 0.3s;
+    transition: all var(--transition-normal);
 }
 
 .day-badge:hover {
@@ -880,28 +1003,9 @@ section {
     transform: translateY(-3px);
 }
 
-/* Hapus CSS schedule-grid & schedule-card yang lama */
-
-.day {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
-}
-
-.time {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.event {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* Gallery */
-/* Support Section */
+/* ============================================
+   SUPPORT / SAWER SECTION
+   ============================================ */
 .support-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -917,7 +1021,7 @@ section {
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all var(--transition-slow);
 }
 
 .support-card:hover {
@@ -934,7 +1038,7 @@ section {
     height: 200%;
     background: radial-gradient(circle, rgba(216, 155, 43, 0.1) 0%, transparent 70%);
     opacity: 0;
-    transition: opacity 0.4s;
+    transition: opacity var(--transition-slow);
     pointer-events: none;
 }
 
@@ -958,7 +1062,7 @@ section {
     border: 2px solid rgba(216, 155, 43, 0.2);
     border-radius: 50%;
     font-size: 2rem;
-    transition: all 0.3s;
+    transition: all var(--transition-normal);
 }
 
 .support-card:hover .icon-circle {
@@ -969,11 +1073,9 @@ section {
 }
 
 .support-card h3 {
-    font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     color: var(--gold);
     margin-bottom: 1rem;
-    letter-spacing: 2px;
     position: relative;
     z-index: 1;
 }
@@ -995,7 +1097,7 @@ section {
     color: var(--gold);
     position: relative;
     z-index: 1;
-    transition: gap 0.3s;
+    transition: gap var(--transition-normal);
 }
 
 .support-card:hover .support-cta {
@@ -1004,20 +1106,16 @@ section {
 
 .arrow {
     font-size: 1.2rem;
-    transition: transform 0.3s;
+    transition: transform var(--transition-normal);
 }
 
 .support-card:hover .arrow {
     transform: translateX(5px);
 }
 
-@media (max-width: 768px) {
-    .support-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Social */
+/* ============================================
+   SOCIAL LINKS SECTION
+   ============================================ */
 .social-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1033,14 +1131,16 @@ section {
     gap: 0.5rem;
     text-decoration: none;
     color: var(--text-primary);
+    padding: 2rem;
 }
 
 .social-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .social-name {
     font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .social-handle {
@@ -1048,7 +1148,9 @@ section {
     color: var(--text-secondary);
 }
 
-/* Footer */
+/* ============================================
+   FOOTER
+   ============================================ */
 footer {
     padding: 4rem 5% 2rem;
     text-align: center;
@@ -1080,7 +1182,7 @@ footer {
 .footer-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color var(--transition-fast);
 }
 
 .footer-links a:hover {
@@ -1092,7 +1194,9 @@ footer {
     font-size: 0.85rem;
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE - TABLET (≤1024px)
+   ============================================ */
 @media (max-width: 1024px) {
     .hero-title {
         font-size: 3.5rem;
@@ -1103,7 +1207,6 @@ footer {
     }
     
     .stats-grid,
-    .schedule-grid,
     .social-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1111,9 +1214,18 @@ footer {
     .about-grid {
         grid-template-columns: 1fr;
     }
+    
+    .support-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
 }
 
+/* ============================================
+   RESPONSIVE - MOBILE (≤768px)
+   ============================================ */
 @media (max-width: 768px) {
+    /* Navbar Mobile */
     .nav-links {
         display: none;
         position: absolute;
@@ -1136,6 +1248,7 @@ footer {
         display: flex;
     }
     
+    /* Hero Mobile */
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1147,6 +1260,7 @@ footer {
     
     .hero-buttons {
         justify-content: center;
+        flex-direction: column;
     }
     
     .hero-stats {
@@ -1157,18 +1271,69 @@ footer {
         display: none;
     }
     
+    /* Grid Mobile */
     .bento-grid {
         grid-template-columns: 1fr;
     }
     
+    .bento-card.large,
+    .bento-card.tall {
+        grid-row: auto;
+    }
+    
     .stats-grid,
-    .schedule-grid,
-    .gallery-grid,
     .social-grid {
         grid-template-columns: 1fr;
     }
     
+    .support-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Typography Mobile */
     .section-title {
         font-size: 2.5rem;
     }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .time-highlight {
+        font-size: 2.5rem;
+    }
+    
+    .footer-quote p {
+        font-size: 1.5rem;
+    }
+}
+
+/* ============================================
+   ANIMATIONS - REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 10rem; /* biar scroll indicator turun */
 }
